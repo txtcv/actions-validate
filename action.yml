@@ -1,0 +1,42 @@
+name: Validate JSON Resume CV
+description: Validate a JSON Resume CV file using the txtcv CLI
+branding:
+  color: blue
+  icon: check-circle
+
+inputs:
+  cv_path:
+    description: Relative path to the CV JSON file to validate.
+    required: false
+    default: cv.json
+
+runs:
+  using: composite
+  steps:
+    - name: Check out repository
+      uses: actions/checkout@v5
+
+    - name: Install txtcv
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        if ! command -v brew >/dev/null 2>&1; then
+          echo 'Homebrew (brew) must be available on the runner to install txtcv.' >&2
+          exit 1
+        fi
+
+        brew tap txtcv/tap
+        brew install --quiet txtcv
+
+    - name: Validate CV
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        if [[ ! -f "${{ inputs.cv_path }}" ]]; then
+          echo "CV file not found." >&2
+          exit 1
+        fi
+
+        txtcv validate --filename "${{ inputs.cv_path }}"
