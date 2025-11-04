@@ -20,7 +20,7 @@ jobs:
   validate:
     runs-on: macos-latest
     steps:
-      - uses: txtcv/actions/validate@v1
+      - uses: txtcv/actions-validate@v1
         with:
           cv_path: cv.json
 ```
