@@ -1,5 +1,5 @@
-name: Validate JSON Resume CV
-description: Validate a JSON Resume CV file using the txtcv CLI
+name: Validate JSON Resume
+description: Validate your JSON Resume contents using the txtcv CLI
 branding:
   color: blue
   icon: check-circle

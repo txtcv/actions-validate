@@ -1,7 +1,7 @@
 # txtcv actions
 
 This repository provides a reusable GitHub Action definition for validating JSON Resume
-CV files using the [`txtcv`](https://github.com/txtcv/cli) command-line tool.
+files using the [`txtcv`](https://github.com/txtcv/cli) command-line tool.
 
 ## Usage
 
